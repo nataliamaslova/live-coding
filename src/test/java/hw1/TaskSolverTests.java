@@ -1,3 +1,5 @@
+package hw1;
+
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -92,10 +94,17 @@ public class TaskSolverTests {
     }
 
     @Test
-    public void testMax() {
-        assertEquals(7, ts.max(7, 3, 5));
-        assertEquals(5, ts.max(3, 5, 5));
-        assertEquals(7, ts.max(3, 5, 7));
+    public void testMaxOfThreeNumbers() {
+        assertEquals(7, ts.maxOfThreeNumbers(7, 3, 5));
+        assertEquals(5, ts.maxOfThreeNumbers(3, 5, 5));
+        assertEquals(7, ts.maxOfThreeNumbers(3, 5, 7));
+    }
+
+    @Test
+    public void testMaxOfThreeNumbersV2() {
+        assertEquals(7, ts.maxOfThreeNumbersV2(7, 3, 5));
+        assertEquals(5, ts.maxOfThreeNumbersV2(3, 5, 5));
+        assertEquals(7, ts.maxOfThreeNumbersV2(3, 5, 7));
     }
 
     @Test
@@ -105,6 +114,16 @@ public class TaskSolverTests {
         assertTrue(ts.isPalindrome(12344321));
         assertTrue(ts.isPalindrome(123444321));
         assertFalse(ts.isPalindrome(123444521));
+        assertFalse(ts.isPalindrome(-454));
+    }
+
+    @Test void testIsPalindromeV2() {
+        assertTrue(ts.isPalindromeV2(12321));
+        assertTrue(ts.isPalindromeV2(1234321));
+        assertTrue(ts.isPalindromeV2(12344321));
+        assertTrue(ts.isPalindromeV2(123444321));
+        assertFalse(ts.isPalindromeV2(123444521));
+        assertFalse(ts.isPalindromeV2(-454));
     }
 
     @Test

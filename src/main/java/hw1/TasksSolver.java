@@ -1,3 +1,5 @@
+package hw1;
+
 public class TasksSolver {
     public String method1(int a) {
         if (a % 2 == 0) {
@@ -146,7 +148,7 @@ public class TasksSolver {
      Задача 12: Максимум трех чисел
      Напишите функцию, которая принимает три числа и возвращает наибольшее из них.
     */
-    public int max(int a, int b, int c) {
+    public int maxOfThreeNumbers(int a, int b, int c) {
         int max = a;
         if (b > a) {
             max = b;
@@ -157,13 +159,18 @@ public class TasksSolver {
         return max;
     }
 
+    public int maxOfThreeNumbersV2(int a, int b, int c) {
+        return Math.max(a, Math.max(b, c));
+    }
+
+
     /**
      Задача 13: Проверка на палиндромность числа
      Создайте функцию, которая принимает целое число и проверяет, является ли оно палиндромом (например, 121 или 12321). Верните true, если да, и false, если нет.
     */
     public boolean isPalindrome(int a) {
-        Integer n = a;
-        char c[] = n.toString().toCharArray();
+        if (a < 0) return false; // Negative number is not palindrome
+        char[] c = String.valueOf(a).toCharArray();
         boolean palindrome = true;
         for (int i = 0; i < c.length / 2; i++) {
             if (c[i] != c[c.length - 1 - i]) {
@@ -171,6 +178,13 @@ public class TasksSolver {
             }
         }
         return palindrome;
+    }
+
+    public boolean isPalindromeV2(int a) {
+        if (a < 0) return false; // Negative number is not palindrome
+        String s = String.valueOf(a);
+        String sReversed = new StringBuilder(s).reverse().toString();
+        return s.equals(sReversed);
     }
 
     /**
@@ -181,10 +195,10 @@ public class TasksSolver {
      */
     public Integer multiple3(int a, int b) {
         if (a % 3 == 0 && b % 3 == 0) {
-            return Integer.valueOf(a + b);
+            return a + b;
         }
         if (a % 3 == 0 || b % 3 == 0) {
-            return Integer.valueOf(2 * b);
+            return 2 * b;
         }
         return null;
     }
